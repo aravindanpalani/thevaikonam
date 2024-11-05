@@ -1,36 +1,30 @@
-// Menu Toggle for Mobile View
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('nav-links');
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 
-// Counter for Statistics
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-    counter.innerText = '0';
+    // Animated Counter
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        counter.innerText = '0';
 
-    const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
+        const updateCounter = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / 200;
 
-        const increment = target / 200;
+            if(count < target) {
+                counter.innerText = `${Math.ceil(count + increment)}`;
+                setTimeout(updateCounter, 10);
+            } else {
+                counter.innerText = target;
+            }
+        };
 
-        if(count < target) {
-            counter.innerText = `${Math.ceil(count + increment)}`;
-            setTimeout(updateCounter, 10);
-        } else {
-            counter.innerText = target;
-        }
-    };
-
-    window.addEventListener('scroll', () => {
-        const statsSection = document.querySelector('.stats-section');
-        const statsPos = statsSection.getBoundingClientRect().top;
-
-        if(statsPos < window.innerHeight) {
-            updateCounter();
-        }
+        updateCounter();
     });
 });
