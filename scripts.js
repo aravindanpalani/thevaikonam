@@ -26,8 +26,10 @@ counters.forEach(counter => {
     };
 
     window.addEventListener('scroll', () => {
-        const statsSection = document.getElementById('stats').offsetTop - window.innerHeight;
-        if (window.scrollY > statsSection) {
+        const statsSection = document.querySelector('.stats-section');
+        const statsPos = statsSection.getBoundingClientRect().top;
+
+        if(statsPos < window.innerHeight) {
             updateCounter();
         }
     });
