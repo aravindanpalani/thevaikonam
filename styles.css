@@ -8,7 +8,7 @@
 
 /* Navbar */
 .navbar {
-    background-color: #003366;
+    background-color: #00264d;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -17,12 +17,6 @@
     width: 100%;
     top: 0;
     z-index: 1000;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 
 .navbar .logo {
@@ -57,16 +51,17 @@
 /* Hero Section */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(135deg, #004080, #0066CC);
+    background: linear-gradient(135deg, #00264d, #004080);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 2rem;
 }
 
 .hero-section h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     animation: fadeIn 1.5s ease-in-out;
 }
@@ -78,7 +73,7 @@
 
 .btn-primary {
     background-color: #FFD700;
-    color: #003366;
+    color: #00264d;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
     font-weight: bold;
@@ -88,34 +83,23 @@
 
 .btn-primary:hover {
     background-color: #ffc107;
-    color: #003366;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    color: #00264d;
 }
 
 /* Service Cards */
 .service-cards {
     display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
 }
 
 .service-cards .card {
-    flex: 1;
+    flex: 1 1 200px;
     background: #ffffff;
     color: #003366;
     padding: 1.5rem;
-    margin: 1rem;
+    margin: 1rem 0;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -125,6 +109,19 @@
 
 .service-cards .card:hover {
     transform: translateY(-10px);
+}
+
+.service-cards .service-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .service-cards {
+        flex-direction: column;
+    }
 }
 
 /* Contact Section */
@@ -148,18 +145,22 @@
 }
 
 .contact-form button {
-    background-color: #003366;
+    background-color: #00264d;
     color: #ffffff;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
     font-weight: bold;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #003366;
 }
 
 /* Footer */
 footer {
-    background-color: #003366;
+    background-color: #00264d;
     color: #ffffff;
     text-align: center;
     padding: 1rem;
-    font-size: 0.9rem;
 }
