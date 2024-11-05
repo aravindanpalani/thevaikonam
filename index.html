@@ -8,17 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <h1>Ganapathy Finance</h1>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#stats">Statistics</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
+            <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
@@ -35,7 +38,7 @@
     <section id="about" class="about-section">
         <div class="container">
             <h2>About Us</h2>
-            <p>Ganapathy Finance has been a leader in financial solutions, providing comprehensive financial services to help individuals and businesses achieve their goals. With a commitment to integrity and customer satisfaction, we offer a wide range of services tailored to meet the unique needs of each client.</p>
+            <p>Ganapathy Finance provides comprehensive financial solutions for individuals and businesses, focusing on integrity and customer satisfaction.</p>
         </div>
     </section>
 
@@ -47,22 +50,43 @@
                 <div class="card">
                     <i class="fas fa-piggy-bank"></i>
                     <h3>Personal Loans</h3>
-                    <p>Flexible personal loans to help you with your immediate needs.</p>
+                    <p>Flexible personal loans for your immediate needs.</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-briefcase"></i>
                     <h3>Business Loans</h3>
-                    <p>Empowering businesses with tailored loan options to foster growth.</p>
+                    <p>Empowering businesses with tailored loan options.</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-chart-line"></i>
                     <h3>Investments</h3>
-                    <p>Safe and profitable investment plans to secure your future.</p>
+                    <p>Profitable investment plans to secure your future.</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-life-ring"></i>
                     <h3>Insurance</h3>
-                    <p>Comprehensive insurance options for your peace of mind.</p>
+                    <p>Comprehensive insurance for peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <h2>Our Achievements</h2>
+            <div class="stats">
+                <div class="stat">
+                    <span class="counter" data-target="5000">0</span>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat">
+                    <span class="counter" data-target="100">0</span>
+                    <p>Business Partners</p>
+                </div>
+                <div class="stat">
+                    <span class="counter" data-target="150">0</span>
+                    <p>Projects Completed</p>
                 </div>
             </div>
         </div>
@@ -74,11 +98,11 @@
             <h2>What Our Clients Say</h2>
             <div class="testimonials">
                 <div class="testimonial">
-                    <p>"Ganapathy Finance made the loan process smooth and straightforward. Highly recommended!"</p>
+                    <p>"Ganapathy Finance made the loan process smooth and straightforward."</p>
                     <p><strong>- Ramesh K.</strong></p>
                 </div>
                 <div class="testimonial">
-                    <p>"Professional service and great investment options. Ganapathy Finance truly cares about their clients."</p>
+                    <p>"Professional service and great investment options. Ganapathy Finance truly cares."</p>
                     <p><strong>- Anita S.</strong></p>
                 </div>
             </div>
@@ -89,7 +113,6 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>Have any questions? Get in touch with us!</p>
             <form action="submit_form.php" method="post" class="contact-form">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
