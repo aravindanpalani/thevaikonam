@@ -13,7 +13,7 @@ body {
 
 /* Navbar */
 .navbar {
-    background: #4a90e2;
+    background: #002B36;
     color: white;
     padding: 1rem 2rem;
     display: flex;
@@ -35,7 +35,7 @@ body {
 }
 
 .nav-links a {
-    color: white;
+    color: #FDD835;
     text-decoration: none;
 }
 
@@ -46,12 +46,13 @@ body {
 /* Hero Section */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(135deg, #4a90e2, #5a68c6);
+    background: linear-gradient(135deg, #008080, #002B36);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    transition: all 0.3s ease-in;
 }
 
 /* Section Styles */
@@ -68,6 +69,19 @@ body {
     margin-top: 2rem;
 }
 
+.service-cards .card {
+    background: #004d40;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-cards .card:hover {
+    transform: scale(1.05);
+}
+
 /* Statistics Section */
 .stats {
     display: flex;
@@ -77,9 +91,18 @@ body {
 
 .stat .counter {
     font-size: 2.5rem;
-    color: #ff6347;
+    color: #FDD835;
 }
 
+/* Footer */
+footer {
+    background: #002B36;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .service-cards {
         grid-template-columns: 1fr;
