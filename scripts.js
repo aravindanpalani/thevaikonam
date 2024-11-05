@@ -1,12 +1,34 @@
-document.querySelector('.contact-form').addEventListener('submit', function(event) {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+// Menu Toggle for Mobile View
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('nav-links');
 
-    if (!name || !email || !message) {
-        alert("Please fill in all fields.");
-        event.preventDefault();
-    } else {
-        alert("Thank you for reaching out! We'll get back to you soon.");
-    }
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Counter for Statistics
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+    counter.innerText = '0';
+
+    const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = target / 200;
+
+        if(count < target) {
+            counter.innerText = `${Math.ceil(count + increment)}`;
+            setTimeout(updateCounter, 10);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    window.addEventListener('scroll', () => {
+        const statsSection = document.getElementById('stats').offsetTop - window.innerHeight;
+        if (window.scrollY > statsSection) {
+            updateCounter();
+        }
+    });
 });
