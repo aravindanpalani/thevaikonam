@@ -56,6 +56,25 @@ body {
     object-fit: cover;
 }
 
+.mute-button {
+    position: absolute;  /* Position within the ad section */
+    bottom: 20px;      /* Adjust as needed */
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    z-index: 1001; /* Ensure button is above the video */
+}
+
+.mute-button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker on hover */
+}
+
+
 /* Search Section */
 .search-section {
     text-align: center;
@@ -168,11 +187,15 @@ body {
     }
 
     .ad-section {
-        /* On small screens, we might want to scale the video down */
-        /* to avoid it taking up the whole screen.  Adjust as needed. */
-        transform: scale(0.8); /* Example:  Scale down to 80% */
+        transform: scale(0.8);
     }
+
     .video-container {
         height: 100vh;
+    }
+
+    .mute-button{
+       bottom: 10px;
+       left: 10px;
     }
 }

@@ -1,4 +1,3 @@
-//  Data (Simulated from data.json)
 const keyData = [
     {
         "id": 1,
