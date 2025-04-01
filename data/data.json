@@ -8,8 +8,7 @@
         "charges": 50.00,
         "rating": 4.5,
         "status": "online",
-        "details": "Licensed electrician with 10+ years of experience.",
-        "ad_video_url": "https://example.com/john_smith_ad.mp4"
+        "details": "Licensed electrician with 10+ years of experience."
     },
     {
         "id": 2,
@@ -20,8 +19,7 @@
         "charges": 60.00,
         "rating": 4.8,
         "status": "offline",
-        "details": "Certified plumber specializing in residential repairs.",
-        "ad_video_url": "https://example.com/jane_doe_ad.mp4"
+        "details": "Certified plumber specializing in residential repairs."
     },
     {
         "id": 3,
@@ -32,7 +30,6 @@
         "charges": 40.00,
         "rating": 4.2,
         "status": "online",
-        "details": "Experienced carpenter for custom woodworking projects.",
-        "ad_video_url": null
+        "details": "Experienced carpenter for custom woodworking projects."
     }
 ]

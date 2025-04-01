@@ -9,8 +9,7 @@ const keyData = [
         "charges": 50.00,
         "rating": 4.5,
         "status": "online",
-        "details": "Licensed electrician with 10+ years of experience.",
-        "ad_video_url": "https://example.com/john_smith_ad.mp4"
+        "details": "Licensed electrician with 10+ years of experience."
     },
     {
         "id": 2,
@@ -21,8 +20,7 @@ const keyData = [
         "charges": 60.00,
         "rating": 4.8,
         "status": "offline",
-        "details": "Certified plumber specializing in residential repairs.",
-        "ad_video_url": "https://example.com/jane_doe_ad.mp4"
+        "details": "Certified plumber specializing in residential repairs."
     },
     {
         "id": 3,
@@ -33,8 +31,7 @@ const keyData = [
         "charges": 40.00,
         "rating": 4.2,
         "status": "online",
-        "details": "Experienced carpenter for custom woodworking projects.",
-        "ad_video_url": null
+        "details": "Experienced carpenter for custom woodworking projects."
     }
 ];
 
@@ -87,17 +84,7 @@ function displayResults(keys) {
             <p class="key-rating"><strong>Rating:</strong> ${key.rating || 'N/A'}</p>
             <p class="key-status"><strong>Status:</strong> ${key.status}</p>
             <p class="key-details"><strong>Details:</strong> ${key.details || 'N/A'}</p>
-            ${key.ad_video_url ? `<button class="play-ad-button" data-ad-url="${key.ad_video_url}">Play Ad</button>` : ''}
         `;
         resultsList.appendChild(listItem);
-
-        // Attach event listener to the "Play Ad" button (if it exists)
-        const playAdButton = listItem.querySelector('.play-ad-button');
-        if (playAdButton) {
-            playAdButton.addEventListener('click', () => {
-                const adUrl = playAdButton.getAttribute('data-ad-url');
-                playSpecificAd(adUrl); // Call the function from ad_management.js
-            });
-        }
     });
 }
