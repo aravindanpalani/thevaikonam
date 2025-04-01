@@ -1,367 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thevai Konam - Your Daily Needs Hub</title>
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/ratings.css">
+<title>Video Playlist</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#video-container {
+  /* Set fixed width and height */
+  width: 800px; /* Adjust as needed */
+  height: 450px; /* Adjust as needed - maintain aspect ratio if desired */
+  max-width: 800px;
+  position: relative;
+  overflow: hidden; /* Prevent potential overflow from different aspect ratios */
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain; /* Ensures the video fits within the container without cropping, may show black bars */
+}
+
+#mute-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+</style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">Thevai Konam</div>
-            <div class="tagline">Your One-Stop Hub for Daily Needs</div>
-            <div class="search-container">
-                <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="What service do you need today?">
-                    <button class="search-btn">Search</button>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <main class="container">
-        <section>
-            <h2 class="section-title animate-fade-in">Popular Categories</h2>
-            <div class="categories animate-fade-in-delay-1">
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/home-services.jpg" alt="Home Services">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Home Services</h3>
-                        <p class="category-desc">Plumbing, Electrical, Drainage & more</p>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/utilities.jpg" alt="Utilities">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Utilities</h3>
-                        <p class="category-desc">Water supply, Electricity & more</p>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/transportation.jpg" alt="Transportation">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Transportation</h3>
-                        <p class="category-desc">Bus timings, Car services & more</p>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/healthcare.jpg" alt="Healthcare">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Healthcare</h3>
-                        <p class="category-desc">Hospitals, Clinics, Pharmacies & more</p>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/events.jpg" alt="Events">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Events</h3>
-                        <p class="category-desc">Wedding halls, Decorations & more</p>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/food.jpg" alt="Food">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Food & Catering</h3>
-                        <p class="category-desc">Restaurants, Catering services & more</p>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/education.jpg" alt="Education">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Education</h3>
-                        <p class="category-desc">Schools, Tutors, Libraries & more</p>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="images/placeholder/emergency.jpg" alt="Emergency">
-                    </div>
-                    <div class="category-content">
-                        <h3 class="category-title">Emergency</h3>
-                        <p class="category-desc">Police, Fire, Ambulance & more</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section>
-            <h2 class="section-title animate-fade-in-delay-1">Top Rated Services</h2>
-            <div class="services-list animate-fade-in-delay-2">
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-name">Super Plumbers</div>
-                        <div class="service-status">
-                            <span class="status-indicator online"></span>
-                            <span>Online</span>
-                        </div>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-info">
-                            <p class="info-label">Service</p>
-                            <p class="info-value">Plumbing, Pipe Fitting, Leak Repair</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">123 Main Street, Central Area</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Price Range</p>
-                            <p class="info-value">₹300 - ₹1500 (Based on service)</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Available Hours</p>
-                            <p class="info-value">7:00 AM - 9:00 PM (Mon-Sat)</p>
-                        </div>
-                        <div class="service-contact">
-                            <button class="contact-btn btn-call">Call Now</button>
-                            <button class="contact-btn btn-message">Message</button>
-                        </div>
-                        <!-- Rating form will be added by JavaScript -->
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-name">Quick Electricians</div>
-                        <div class="service-status">
-                            <span class="status-indicator online"></span>
-                            <span>Online</span>
-                        </div>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-info">
-                            <p class="info-label">Service</p>
-                            <p class="info-value">Wiring, Repairs, Installations</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">456 North Avenue, East Side</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Price Range</p>
-                            <p class="info-value">₹400 - ₹2000 (Based on service)</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Available Hours</p>
-                            <p class="info-value">8:00 AM - 10:00 PM (All Days)</p>
-                        </div>
-                        <div class="service-contact">
-                            <button class="contact-btn btn-call">Call Now</button>
-                            <button class="contact-btn btn-message">Message</button>
-                        </div>
-                        <!-- Rating form will be added by JavaScript -->
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-name">Crystal Water Supply</div>
-                        <div class="service-status">
-                            <span class="status-indicator offline"></span>
-                            <span>Offline</span>
-                        </div>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-info">
-                            <p class="info-label">Service</p>
-                            <p class="info-value">Drinking Water Delivery, RO Water</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">789 West Road, Central District</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Price Range</p>
-                            <p class="info-value">₹20 - ₹150 (Based on quantity)</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Available Hours</p>
-                            <p class="info-value">6:00 AM - 8:00 PM (Mon-Sat)</p>
-                        </div>
-                        <div class="service-contact">
-                            <button class="contact-btn btn-call">Call Now</button>
-                            <button class="contact-btn btn-message">Message</button>
-                        </div>
-                        <!-- Rating form will be added by JavaScript -->
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-name">Royal Wedding Hall</div>
-                        <div class="service-status">
-                            <span class="status-indicator online"></span>
-                            <span>Online</span>
-                        </div>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-info">
-                            <p class="info-label">Service</p>
-                            <p class="info-value">Wedding Hall, Events, Catering</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">1010 South Boulevard, Elite Area</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Price Range</p>
-                            <p class="info-value">₹25,000 - ₹1,50,000 (Based on package)</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Available Hours</p>
-                            <p class="info-value">9:00 AM - 11:00 PM (All Days)</p>
-                        </div>
-                        <div class="service-contact">
-                            <button class="contact-btn btn-call">Call Now</button>
-                            <button class="contact-btn btn-message">Message</button>
-                        </div>
-                        <!-- Rating form will be added by JavaScript -->
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-name">City General Hospital</div>
-                        <div class="service-status">
-                            <span class="status-indicator online"></span>
-                            <span>Online</span>
-                        </div>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-info">
-                            <p class="info-label">Service</p>
-                            <p class="info-value">Emergency, General Medicine, Surgery</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">2020 Health Avenue, North District</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Price Range</p>
-                            <p class="info-value">Varies by treatment</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Available Hours</p>
-                            <p class="info-value">24/7 (Emergency), 8:00 AM - 8:00 PM (OPD)</p>
-                        </div>
-                        <div class="service-contact">
-                            <button class="contact-btn btn-call">Call Now</button>
-                            <button class="contact-btn btn-message">Message</button>
-                        </div>
-                        <!-- Rating form will be added by JavaScript -->
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-name">Metro City Bus</div>
-                        <div class="service-status">
-                            <span class="status-indicator offline"></span>
-                            <span>Offline</span>
-                        </div>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-info">
-                            <p class="info-label">Service</p>
-                            <p class="info-value">City Bus Service, Route Information</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">Central Bus Terminal, Main City</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Price Range</p>
-                            <p class="info-value">₹10 - ₹50 (Based on distance)</p>
-                        </div>
-                        <div class="service-info">
-                            <p class="info-label">Available Hours</p>
-                            <p class="info-value">5:00 AM - 11:00 PM (All Days)</p>
-                        </div>
-                        <div class="service-contact">
-                            <button class="contact-btn btn-call">Call Now</button>
-                            <button class="contact-btn btn-message">Message</button>
-                        </div>
-                        <!-- Rating form will be added by JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer class="footer">
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo">Thevai Konam</div>
-                <p class="footer-desc">Your complete solution for daily needs. Find reliable services, get information, and connect with the best service providers in your area.</p>
-            </div>
-            
-            <div>
-                <h3 class="footer-title">Categories</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Home Services</a></li>
-                    <li><a href="#">Utilities</a></li>
-                    <li><a href="#">Transportation</a></li>
-                    <li><a href="#">Healthcare</a></li>
-                    <li><a href="#">Events</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 class="footer-title">About Us</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h3 class="footer-title">Support</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Feedback</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            &copy; 2025 Thevai Konam. All rights reserved.
-        </div>
-    </footer>
-    
-    <!-- JavaScript Files -->
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/ratings.js"></script>
+
+<div id="video-container">
+  <video id="my-video" controls muted>
+    <source src="https://gstreamer.freedesktop.org/data/media/sintel_cropped_multilingual.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+  <button id="mute-button">Unmute</button>
+</div>
+
+<script>
+const video = document.getElementById('my-video');
+const muteButton = document.getElementById('mute-button');
+
+const videoSources = [
+  'https://gstreamer.freedesktop.org/data/media/sintel_cropped_multilingual.webm',
+  'https://gstreamer.freedesktop.org/data/media/sintel_trailer-480p.webm',
+  'https://gstreamer.freedesktop.org/data/media/sintel_cropped_multilingual.webm'
+];
+
+let currentVideoIndex = 0;
+
+video.addEventListener('ended', playNextVideo);
+muteButton.addEventListener('click', toggleMute);
+
+function playNextVideo() {
+  currentVideoIndex++;
+  if (currentVideoIndex < videoSources.length) {
+    video.src = videoSources[currentVideoIndex];
+    video.load();
+    video.play();
+  } else {
+    currentVideoIndex = 0;
+    video.src = videoSources[0];
+    video.load();
+    video.play();
+  }
+}
+
+function toggleMute() {
+  if (video.muted) {
+    video.muted = false;
+    muteButton.textContent = 'Mute';
+  } else {
+    video.muted = true;
+    muteButton.textContent = 'Unmute';
+  }
+}
+</script>
+
 </body>
 </html>
