@@ -3,95 +3,794 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ganapathy Finance</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Thevai Konam - Your Daily Needs Hub</title>
+    <style>
+        :root {
+            --primary-color: #4c35de;
+            --secondary-color: #ff6b6b;
+            --accent-color: #2ec4b6;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            --gray-color: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #7c4dff);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('/api/placeholder/1200/300') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .search-bar {
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        
+        .search-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background: #ff5252;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .category-img {
+            height: 150px;
+            background-color: var(--gray-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .category-content {
+            padding: 20px;
+        }
+        
+        .category-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .category-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--gray-color);
+        }
+        
+        .service-name {
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        .service-status {
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .online {
+            background-color: #28a745;
+        }
+        
+        .offline {
+            background-color: #dc3545;
+        }
+        
+        .service-body {
+            padding: 20px;
+        }
+        
+        .service-info {
+            margin-bottom: 15px;
+        }
+        
+        .info-label {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 3px;
+        }
+        
+        .info-value {
+            font-size: 0.95rem;
+        }
+        
+        .service-contact {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-call {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-call:hover {
+            background-color: #3721d1;
+        }
+        
+        .btn-message {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-message:hover {
+            background-color: #25a999;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-desc {
+            color: #adb5bd;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            background-color: #141619;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease;
+        }
+        
+        .animate-fade-in-delay-1 {
+            animation: fadeIn 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Ganapathy <span>Finance</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-        </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h1>Welcome to Ganapathy Finance</h1>
-            <p>Your trusted partner in personal, business, and vehicle finance solutions.</p>
-            <a href="#contact" class="btn-primary">Contact Us</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>Ganapathy Finance provides comprehensive financial solutions tailored to meet your personal, business, and vehicle financing needs. Our expert team is dedicated to helping you achieve financial freedom with plans that suit your lifestyle.</p>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-cards">
-                <div class="card">
-                    <img src="personal-loan.jpg" alt="Personal Loan" class="service-img">
-                    <h3>Personal Loans</h3>
-                    <p>Flexible personal loans to meet your immediate financial needs with competitive interest rates.</p>
-                </div>
-                <div class="card">
-                    <img src="business-financing.jpg" alt="Business Financing" class="service-img">
-                    <h3>Business Financing</h3>
-                    <p>Empowering your business growth with customized financing solutions for sustainable success.</p>
-                </div>
-                <div class="card">
-                    <img src="investment-advice.jpg" alt="Investment Advice" class="service-img">
-                    <h3>Investment Advice</h3>
-                    <p>Smart investment guidance tailored to help you maximize returns and secure your financial future.</p>
-                </div>
-                <div class="card">
-                    <img src="vehicle-financing.jpg" alt="Vehicle Financing" class="service-img">
-                    <h3>Vehicle Financing</h3>
-                    <p>Affordable vehicle financing options to help you get behind the wheel of your dream vehicle.</p>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Thevai Konam</div>
+            <div class="tagline">Your One-Stop Hub for Daily Needs</div>
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="What service do you need today?">
+                    <button class="search-btn">Search</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="submit_form.php" method="post" class="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+    </header>
+    
+    <main class="container">
+        <section>
+            <h2 class="section-title animate-fade-in">Popular Categories</h2>
+            <div class="categories animate-fade-in-delay-1">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Home Services">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Home Services</h3>
+                        <p class="category-desc">Plumbing, Electrical, Drainage & more</p>
+                    </div>
+                </div>
                 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit" class="btn-primary">Send Message</button>
-            </form>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Utilities">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Utilities</h3>
+                        <p class="category-desc">Water supply, Electricity & more</p>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Transportation">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Transportation</h3>
+                        <p class="category-desc">Bus timings, Car services & more</p>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Healthcare">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Healthcare</h3>
+                        <p class="category-desc">Hospitals, Clinics, Pharmacies & more</p>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Events">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Events</h3>
+                        <p class="category-desc">Wedding halls, Decorations & more</p>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Food">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Food & Catering</h3>
+                        <p class="category-desc">Restaurants, Catering services & more</p>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Education">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Education</h3>
+                        <p class="category-desc">Schools, Tutors, Libraries & more</p>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="/api/placeholder/300/150" alt="Emergency">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Emergency</h3>
+                        <p class="category-desc">Police, Fire, Ambulance & more</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title animate-fade-in-delay-1">Top Rated Services</h2>
+            <div class="services-list animate-fade-in-delay-2">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Super Plumbers</div>
+                        <div class="service-status">
+                            <span class="status-indicator online"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-info">
+                            <p class="info-label">Service</p>
+                            <p class="info-value">Plumbing, Pipe Fitting, Leak Repair</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">123 Main Street, Central Area</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Price Range</p>
+                            <p class="info-value">₹300 - ₹1500 (Based on service)</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Available Hours</p>
+                            <p class="info-value">7:00 AM - 9:00 PM (Mon-Sat)</p>
+                        </div>
+                        <div class="service-contact">
+                            <button class="contact-btn btn-call">Call Now</button>
+                            <button class="contact-btn btn-message">Message</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Quick Electricians</div>
+                        <div class="service-status">
+                            <span class="status-indicator online"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-info">
+                            <p class="info-label">Service</p>
+                            <p class="info-value">Wiring, Repairs, Installations</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">456 North Avenue, East Side</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Price Range</p>
+                            <p class="info-value">₹400 - ₹2000 (Based on service)</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Available Hours</p>
+                            <p class="info-value">8:00 AM - 10:00 PM (All Days)</p>
+                        </div>
+                        <div class="service-contact">
+                            <button class="contact-btn btn-call">Call Now</button>
+                            <button class="contact-btn btn-message">Message</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Crystal Water Supply</div>
+                        <div class="service-status">
+                            <span class="status-indicator offline"></span>
+                            <span>Offline</span>
+                        </div>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-info">
+                            <p class="info-label">Service</p>
+                            <p class="info-value">Drinking Water Delivery, RO Water</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">789 West Road, Central District</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Price Range</p>
+                            <p class="info-value">₹20 - ₹150 (Based on quantity)</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Available Hours</p>
+                            <p class="info-value">6:00 AM - 8:00 PM (Mon-Sat)</p>
+                        </div>
+                        <div class="service-contact">
+                            <button class="contact-btn btn-call">Call Now</button>
+                            <button class="contact-btn btn-message">Message</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Royal Wedding Hall</div>
+                        <div class="service-status">
+                            <span class="status-indicator online"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-info">
+                            <p class="info-label">Service</p>
+                            <p class="info-value">Wedding Hall, Events, Catering</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">1010 South Boulevard, Elite Area</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Price Range</p>
+                            <p class="info-value">₹25,000 - ₹1,50,000 (Based on package)</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Available Hours</p>
+                            <p class="info-value">9:00 AM - 11:00 PM (All Days)</p>
+                        </div>
+                        <div class="service-contact">
+                            <button class="contact-btn btn-call">Call Now</button>
+                            <button class="contact-btn btn-message">Message</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">City General Hospital</div>
+                        <div class="service-status">
+                            <span class="status-indicator online"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-info">
+                            <p class="info-label">Service</p>
+                            <p class="info-value">Emergency, General Medicine, Surgery</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">2020 Health Avenue, North District</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Price Range</p>
+                            <p class="info-value">Varies by treatment</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Available Hours</p>
+                            <p class="info-value">24/7 (Emergency), 8:00 AM - 8:00 PM (OPD)</p>
+                        </div>
+                        <div class="service-contact">
+                            <button class="contact-btn btn-call">Call Now</button>
+                            <button class="contact-btn btn-message">Message</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-name">Metro City Bus</div>
+                        <div class="service-status">
+                            <span class="status-indicator offline"></span>
+                            <span>Offline</span>
+                        </div>
+                    </div>
+                    <div class="service-body">
+                        <div class="service-info">
+                            <p class="info-label">Service</p>
+                            <p class="info-value">City Bus Service, Route Information</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">Central Bus Terminal, Main City</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Price Range</p>
+                            <p class="info-value">₹10 - ₹50 (Based on distance)</p>
+                        </div>
+                        <div class="service-info">
+                            <p class="info-label">Available Hours</p>
+                            <p class="info-value">5:00 AM - 11:00 PM (All Days)</p>
+                        </div>
+                        <div class="service-contact">
+                            <button class="contact-btn btn-call">Call Now</button>
+                            <button class="contact-btn btn-message">Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">Thevai Konam</div>
+                <p class="footer-desc">Your complete solution for daily needs. Find reliable services, get information, and connect with the best service providers in your area.</p>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home Services</a></li>
+                    <li><a href="#">Utilities</a></li>
+                    <li><a href="#">Transportation</a></li>
+                    <li><a href="#">Healthcare</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">About Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Ganapathy Finance. All Rights Reserved.</p>
+        
+        <div class="copyright">
+            &copy; 2025 Thevai Konam. All rights reserved.
+        </div>
     </footer>
-
-    <script src="scripts.js"></script>
+    
+    <script>
+        // Add simple animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            // Show categories and services as they come into view
+            function showElements() {
+                document.querySelectorAll('.category-card, .service-card').forEach(function(item) {
+                    if (isInViewport(item) && !item.classList.contains('visible')) {
+                        item.classList.add('visible');
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(function() {
+                            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100);
+                    }
+                });
+            }
+            
+            // Initialize
+            showElements();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', showElements);
+        });
+    </script>
 </body>
 </html>
