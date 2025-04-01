@@ -1,0 +1,177 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Site Header */
+.site-header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 2em;
+    color: #2c3e50;
+}
+
+/* Site Main */
+.site-main {
+    padding: 20px 0;
+}
+
+/* Video Section */
+.video-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    width: 640px;
+    height: 360px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    background-color: #000;
+}
+
+.ad-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Search Section */
+.search-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.results-heading {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 1.5em;
+    color: #2c3e50;
+}
+
+.results-list {
+    list-style: none;
+    padding: 0;
+}
+
+.key-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.key-item h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #3498db;
+}
+
+.key-item p {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.key-item .play-ad-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.key-item .play-ad-button:hover {
+    background-color: #0056b3;
+}
+
+/* Site Footer */
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Responsive Adjustments (Optional - for smaller screens) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .video-container {
+        width: 100%;
+        height: auto;
+    }
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-input {
+        width: 100%;
+    }
+    .search-button {
+        width: 100%;
+    }
+}

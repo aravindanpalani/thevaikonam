@@ -1,97 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Video Playlist</title>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
-}
-
-#video-container {
-  /* Set fixed width and height */
-  width: 800px; /* Adjust as needed */
-  height: 450px; /* Adjust as needed - maintain aspect ratio if desired */
-  max-width: 800px;
-  position: relative;
-  overflow: hidden; /* Prevent potential overflow from different aspect ratios */
-}
-
-video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain; /* Ensures the video fits within the container without cropping, may show black bars */
-}
-
-#mute-button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Directory</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="container">
+        <header class="site-header">
+            <h1 class="site-title">Key Directory</h1>
+        </header>
 
-<div id="video-container">
-  <video id="my-video" controls muted>
-    <source src="https://gstreamer.freedesktop.org/data/media/sintel_cropped_multilingual.webm" type="video/webm">
-    Your browser does not support the video tag.
-  </video>
-  <button id="mute-button">Unmute</button>
-</div>
+        <main class="site-main">
+            <section id="video-section" class="video-section">
+                <div id="video-container" class="video-container">
+                    <video id="ad-video" class="ad-video" controls>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
 
-<script>
-const video = document.getElementById('my-video');
-const muteButton = document.getElementById('mute-button');
+            <section id="search-section" class="search-section">
+                <div id="search-container" class="search-container">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search by name, occupation, address">
+                    <button id="search-button" class="search-button">Search</button>
+                </div>
+            </section>
 
-const videoSources = [
-  'https://gstreamer.freedesktop.org/data/media/sintel_cropped_multilingual.webm',
-  'https://gstreamer.freedesktop.org/data/media/sintel_trailer-480p.webm',
-  'https://gstreamer.freedesktop.org/data/media/sintel_cropped_multilingual.webm'
-];
+            <section id="results-section" class="results-section">
+                <h2 class="results-heading">Search Results</h2>
+                <ul id="results-list" class="results-list"></ul>
+            </section>
+        </main>
 
-let currentVideoIndex = 0;
-
-video.addEventListener('ended', playNextVideo);
-muteButton.addEventListener('click', toggleMute);
-
-function playNextVideo() {
-  currentVideoIndex++;
-  if (currentVideoIndex < videoSources.length) {
-    video.src = videoSources[currentVideoIndex];
-    video.load();
-    video.play();
-  } else {
-    currentVideoIndex = 0;
-    video.src = videoSources[0];
-    video.load();
-    video.play();
-  }
-}
-
-function toggleMute() {
-  if (video.muted) {
-    video.muted = false;
-    muteButton.textContent = 'Mute';
-  } else {
-    video.muted = true;
-    muteButton.textContent = 'Unmute';
-  }
-}
-</script>
-
-</body>
+        <footer class="site-footer">
+            <p>&copy; 2025 Key Directory</p>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/ad_management.js"></script> </body>
 </html>
