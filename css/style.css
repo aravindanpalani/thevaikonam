@@ -35,33 +35,33 @@ body {
 
 /* Ad Section */
 .ad-section {
-    position: fixed; /* Make it fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Hide overflowed video */
-    z-index: -1000; /* Send it to the background */
+    overflow: hidden;
+    z-index: -1000;
 }
 
 .video-container {
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Make it non-interactive */
+    pointer-events: none;
 }
 
 .ad-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the entire area */
+    object-fit: cover;
 }
 
 /* Search Section */
 .search-section {
     text-align: center;
     margin-bottom: 20px;
-    position: relative; /* Allows for z-index on children if needed */
-    z-index: 1; /* Ensure search is above the video */
+    position: relative;
+    z-index: 1;
 }
 
 .search-container {
@@ -99,8 +99,8 @@ body {
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #eee;
-    position: relative; /* Allows for z-index on children if needed */
-    z-index: 1; /* Ensure results are above the video */
+    position: relative;
+    z-index: 1;
 }
 
 .results-heading {
@@ -144,11 +144,11 @@ body {
     border-top: 1px solid #ddd;
     font-size: 0.9em;
     color: #777;
-    position: relative; /* Ensure footer is above the video if needed */
+    position: relative;
     z-index: 1;
 }
 
-/* Responsive Adjustments (Optional - for smaller screens) */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -165,5 +165,14 @@ body {
 
     .search-button {
         width: 100%;
+    }
+
+    .ad-section {
+        /* On small screens, we might want to scale the video down */
+        /* to avoid it taking up the whole screen.  Adjust as needed. */
+        transform: scale(0.8); /* Example:  Scale down to 80% */
+    }
+    .video-container {
+        height: 100vh;
     }
 }
