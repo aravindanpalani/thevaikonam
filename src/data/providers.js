@@ -1,0 +1,122 @@
+export const providers = [
+  {
+    id: 1,
+    name: "Ravi Kumar",
+    service: "Plumbing",
+    rating: 4.8,
+    phone: "98765-43210",
+    status: "online",
+    reviews: 124,
+    experience: "8 years",
+    responseTime: "15 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 2,
+    name: "Priya Sharma",
+    service: "Electrician",
+    rating: 4.9,
+    phone: "98765-43211",
+    status: "offline",
+    reviews: 89,
+    experience: "12 years",
+    responseTime: "30 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 3,
+    name: "Sanjay Patel",
+    service: "Toilet Cleaning",
+    rating: 4.6,
+    phone: "98765-43212",
+    status: "online",
+    reviews: 56,
+    experience: "5 years",
+    responseTime: "20 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 4,
+    name: "Lakshmi Nair",
+    service: "Water Tank Service",
+    rating: 4.7,
+    phone: "98765-43213",
+    status: "online",
+    reviews: 78,
+    experience: "9 years",
+    responseTime: "25 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 5,
+    name: "Deepak Singh",
+    service: "House Cleaning",
+    rating: 4.5,
+    phone: "98765-43214",
+    status: "offline",
+    reviews: 112,
+    experience: "7 years",
+    responseTime: "45 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 6,
+    name: "Anjali Gupta",
+    service: "Plumbing",
+    rating: 4.7,
+    phone: "98765-43215",
+    status: "online",
+    reviews: 94,
+    experience: "10 years",
+    responseTime: "20 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 7,
+    name: "Mohammed Khan",
+    service: "Electrician",
+    rating: 4.4,
+    phone: "98765-43216",
+    status: "online",
+    reviews: 67,
+    experience: "6 years",
+    responseTime: "30 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 8,
+    name: "Sneha Reddy",
+    service: "House Cleaning",
+    rating: 4.9,
+    phone: "98765-43217",
+    status: "offline",
+    reviews: 136,
+    experience: "11 years",
+    responseTime: "40 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 9,
+    name: "Venkat Rao",
+    service: "Water Tank Service",
+    rating: 4.3,
+    phone: "98765-43218",
+    status: "online",
+    reviews: 42,
+    experience: "4 years",
+    responseTime: "35 min",
+    photo: "/api/placeholder/80/80"
+  },
+  {
+    id: 10,
+    name: "Kavita Joshi",
+    service: "Toilet Cleaning",
+    rating: 4.8,
+    phone: "98765-43219",
+    status: "online",
+    reviews: 103,
+    experience: "8 years",
+    responseTime: "25 min",
+    photo: "/api/placeholder/80/80"
+  }
+];
